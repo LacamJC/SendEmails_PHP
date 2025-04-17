@@ -12,10 +12,8 @@ use PHPMailer\PHPMailer\Exception;
 class SendEmail{
     private $to;
     private $from;
-    private $port = 587;
     private $subject;
     private $body;
-    private $host = 'smtp.gmail.com';
     private $name;
   
 
@@ -32,12 +30,12 @@ class SendEmail{
         $mail  = new PHPMailer(true);
         try{
             $mail->isSMTP();
-            $mail->Host = $this->host;
+            $mail->Host = $_ENV['HOST'];
             $mail->SMTPAuth = true;
             $mail->Username = $_ENV['EMAIL_USER'];
             $mail->Password = $_ENV['EMAIL_PASS'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Ativa STARTTLS
-            $mail->Port = $this->port;
+            $mail->Port = $_ENV['PORT'];
 
             $mail->setFrom($this->from, $this->name);
             $mail->addAddress($this->to);

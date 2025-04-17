@@ -1,5 +1,14 @@
 <?php
 session_start();
+require __DIR__ . '/vendor/autoload.php';
+
+
+
+if (isset($_SESSION['array'])) {
+} else {
+    $_SESSION['array'] = [];
+}
+
 
 if (isset($_SESSION['array'])) {
 } else {
@@ -26,7 +35,7 @@ print_r($_SESSION['array']);
     <form class="mx-auto w-50 my-5" method="POST" action="./src/services/adicionar_destinatario.php">
         <div class="mb-3">
             <label for="destinatario" class="form-label">Adicionar destinatario</label>
-            <input type="email" class="form-control" id="destinatario" name="destinatario" >
+            <input type="email" class="form-control" id="destinatario" name="destinatario">
         </div>
 
         <button type="submit" class="btn btn-primary">Adicionar</button>

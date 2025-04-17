@@ -7,6 +7,9 @@ if (isset($_SESSION['array'])) {
 }
 
 
+print_r($_SESSION['array']);
+
+
 ?>
 
 <!doctype html>
@@ -23,7 +26,7 @@ if (isset($_SESSION['array'])) {
     <form class="mx-auto w-50 my-5" method="POST" action="./src/services/adicionar_destinatario.php">
         <div class="mb-3">
             <label for="destinatario" class="form-label">Adicionar destinatario</label>
-            <input type="email" class="form-control" id="destinatario" name="destinatario">
+            <input type="email" class="form-control" id="destinatario" name="destinatario" >
         </div>
 
         <button type="submit" class="btn btn-primary">Adicionar</button>
@@ -46,12 +49,12 @@ if (isset($_SESSION['array'])) {
     <form class="mx-auto w-50 my-5" method="POST" action="./src/services/enviar_email.php">
         <div class="mb-3">
             <label for="destinatario" class="form-label">Assunto</label>
-            <input type="text" class="form-control" id="assunto" name="assunto">
+            <input type="text" class="form-control" id="assunto" name="assunto" required>
         </div>
         <div class="mb-3">
             <label for="destinatario" class="form-label">Corpo da mensagem</label>
             <div class="form-floating">
-                <textarea class="form-control" placeholder="Corpo da mensagem" id="corpo" name="corpo"></textarea>
+                <textarea class="form-control" placeholder="Corpo da mensagem" id="corpo" name="corpo" required></textarea>
                 <label for="floatingTextarea">Comments</label>
             </div>
         </div>

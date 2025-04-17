@@ -8,6 +8,7 @@ echo "<div class='spinner-border' role='status'>
   <span class='sr-only'>Loading...</span>
 </div>";
 try {
+    print_r($_SESSION['array']);
     $destinatarios = [];
     $message = new Message($_POST['assunto'], $_POST['corpo']);
     $controller = new Controller;

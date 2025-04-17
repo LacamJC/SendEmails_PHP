@@ -1,7 +1,7 @@
 <?php 
 
 namespace SendMail\Sender;
-require_once '../../config.php';
+// require_once '../../config.php';
 
 // require __DIR__ . '../../../../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
@@ -30,12 +30,12 @@ class SendEmail{
         $mail  = new PHPMailer(true);
         try{
             $mail->isSMTP();
-            $mail->Host = $_ENV['HOST'];
+            $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['EMAIL_USER'];
-            $mail->Password = $_ENV['EMAIL_PASS'];
+            $mail->Username = 'node.app.lacam@gmail.com';
+            $mail->Password = 'nroz uava grup qujp';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Ativa STARTTLS
-            $mail->Port = $_ENV['PORT'];
+            $mail->Port = 587;
 
             $mail->setFrom($this->from, $this->name);
             $mail->addAddress($this->to);

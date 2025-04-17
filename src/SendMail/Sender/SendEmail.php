@@ -1,6 +1,7 @@
 <?php 
 
 namespace SendMail\Sender;
+require_once '../../config.php';
 
 // require __DIR__ . '../../../../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
@@ -33,8 +34,8 @@ class SendEmail{
             $mail->isSMTP();
             $mail->Host = $this->host;
             $mail->SMTPAuth = true;
-            $mail->Username = 'node.app.lacam@gmail.com'; // Seu e-mail
-            $mail->Password = 'nroz uava grup qujp';      // Senha de app
+            $mail->Username = $_ENV['EMAIL_USER'];
+            $mail->Password = $_ENV['EMAIL_PASS'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Ativa STARTTLS
             $mail->Port = $this->port;
 
